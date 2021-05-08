@@ -7,20 +7,20 @@
 // @lc code=start
 
 var RecentCounter = function () {
-    this.q = []
-};
+  this.q = []
+}
 
-/** 
+/**
  * @param {number} t
  * @return {number}
  */
 RecentCounter.prototype.ping = function (t) {
-    this.q.push(t)
-    while (this.q[0] < t - 3000) {
-        this.q.shift()
-    }
-    return this.q.length
-};
+  this.q.push(t)
+  while (this.q[0] < t - 3000) {
+    this.q.shift()
+  }
+  return this.q.length
+}
 
 /**
  * Your RecentCounter object will be instantiated and called as such:
@@ -28,4 +28,3 @@ RecentCounter.prototype.ping = function (t) {
  * var param_1 = obj.ping(t)
  */
 // @lc code=end
-

@@ -17,9 +17,8 @@
  * @return {void} Do not return anything, modify node in-place instead.
  */
 var deleteNode = function (node) {
-    // 把下一个节点的值复制到此节点，删除下个节点即可
-    node.val = node.next.val
-    node.next = node.next.next
-};
+  // 把下一个节点的值复制到此节点，删除下个节点即可
+  node.val = node.next.val
+  node.next = node.next.next
+}
 // @lc code=end
-

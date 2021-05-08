@@ -18,19 +18,18 @@
  * @return {number[]}
  */
 var preorderTraversal = function (root) {
-    // 需要用递归解决的问题，都能用栈解决
-    const res = []
-    const stack = []
-    if (root) stack.push(root)
+  // 需要用递归解决的问题，都能用栈解决
+  const res = []
+  const stack = []
+  if (root) stack.push(root)
 
-    while (stack.length) {
-        const n = stack.pop()
-        res.push(n.val)
-        if (n.right) stack.push(n.right)
-        if (n.left) stack.push(n.left)
-    }
+  while (stack.length) {
+    const n = stack.pop()
+    res.push(n.val)
+    if (n.right) stack.push(n.right)
+    if (n.left) stack.push(n.left)
+  }
 
-    return res
-};
+  return res
+}
 // @lc code=end
-

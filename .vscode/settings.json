@@ -1,9 +1,7 @@
 {
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "cSpell.words": [
-        "nums",
-        "leetcode"
-    ]
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": ["nums", "leetcode"]
 }
