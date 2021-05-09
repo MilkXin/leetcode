@@ -10,30 +10,48 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  // 分析，遇到左括号入栈，遇到右括号且与栈顶括号匹配则出栈，最后栈空了则合法，否则不合法
+  // 方案一：遇到左括号入栈，遇到右括号且与栈顶括号匹配则出栈，最后栈空了则合法，否则不合法
+  // if (s.length % 2 === 1) return false
+  // const stack = []
+  // for (let i = 0; i < s.length; i++) {
+  //   const c = s[i]
+  //   if (c === '{' || c === '[' || c === '(') {
+  //     stack.push(c)
+  //   } else {
+  //     const t = stack[stack.length - 1]
+  //     if (
+  //       (t === '{' && c === '}') ||
+  //       (t === '[' && c === ']') ||
+  //       (t === '(' && c === ')')
+  //     ) {
+  //       stack.pop()
+  //     } else {
+  //       return false
+  //     }
+  //   }
+  // }
+  // return stack.length === 0
+
+  // 方案二：用map优化
   if (s.length % 2 === 1) return false
   const stack = []
-  const map = {
-    '(': ')',
-    '[': ']',
-    '{': '}',
-  }
-  const lefts = Object.keys(map)
-  const rights = Object.values(map)
-
-  for (const item of s) {
-    if (lefts.includes(item)) {
-      stack.push(item)
-    }
-    if (rights.includes(item)) {
-      if (map[stack[stack.length - 1]] === item) {
+  const map = new Map()
+  map.set('{', '}')
+  map.set('[', ']')
+  map.set('(', ')')
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i]
+    if (map.has(c)) {
+      stack.push(c)
+    } else {
+      const t = stack[stack.length - 1]
+      if (map.get(t) === c) {
         stack.pop()
       } else {
         return false
       }
     }
   }
-
-  return !stack.length
+  return stack.length === 0
 }
 // @lc code=end
