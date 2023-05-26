@@ -18,25 +18,31 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  const l3 = new ListNode(0)
-  let p1 = l1
-  let p2 = l2
-  let p3 = l3
+  /**
+   * 1. 两个链表的长度可能不一样，所以需要遍历两个链表
+   * 2. 链表的值可能超过10，所以需要进位
+   * 3. 链表的最后一位可能需要进位，所以需要判断最后一位是否需要进位
+   */
+  let head = null,
+    tail = null
   let carry = 0
-
-  while (p1 || p2) {
-    const v1 = p1 ? p1.val : 0
-    const v2 = p2 ? p2.val : 0
-    const val = v1 + v2 + carry
-    carry = Math.floor(val / 10)
-    p3.next = new ListNode(val % 10)
-    if (p1) p1 = p1.next
-    if (p2) p2 = p2.next
-    p3 = p3.next
+  while (l1 || l2) {
+    const n1 = l1 ? l1.val : 0
+    const n2 = l2 ? l2.val : 0
+    const sum = n1 + n2 + carry
+    if (!head) {
+      head = tail = new ListNode(sum % 10)
+    } else {
+      tail.next = new ListNode(sum % 10)
+      tail = tail.next
+    }
+    carry = Math.floor(sum / 10)
+    if (l1) l1 = l1.next
+    if (l2) l2 = l2.next
   }
-  if (carry) {
-    p3.next = new ListNode(carry)
+  if (carry > 0) {
+    tail.next = new ListNode(carry)
   }
-  return l3.next
+  return head
 }
 // @lc code=end
