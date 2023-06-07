@@ -19,12 +19,18 @@
  */
 var mergeTwoLists = function (list1, list2) {
   /**
-   * 解题思路：
-   * 1. 递归
-   * 2. 迭代
+   * 一、递归:
+   * 1. 如果 list1 的 val 小于 list2 的 val，那么 list1 的 next 指向 list1.next 和 list2 的合并结果
+   * 2. 如果 list1 的 val 大于等于 list2 的 val，那么 list2 的 next 指向 list1 和 list2.next 的合并结果
+   * 3. 返回结果
+   * 
+   * 二、迭代:
+   * 1. 新建一个链表，用于存储合并后的结果
+   * 2. 遍历 list1 和 list2，比较两个链表的值，将较小的值放入新链表中
+   * 3. 返回结果
    */
 
-  // 递归
+  // 一、递归
   // if (!list1) return list2;
   // if (!list2) return list1;
   // if (list1.val < list2.val) {
@@ -35,7 +41,7 @@ var mergeTwoLists = function (list1, list2) {
   //     return list2;
   // }
 
-  // 迭代
+  // 二、迭代
   let preHead = new ListNode(-1)
   let prev = preHead
   while (list1 && list2) {

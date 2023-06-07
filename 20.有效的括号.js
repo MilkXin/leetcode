@@ -10,7 +10,19 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  // 方案一：遇到左括号入栈，遇到右括号且与栈顶括号匹配则出栈，最后栈空了则合法，否则不合法
+  /**
+   * 一、栈:
+   * 1. 遇到左括号入栈
+   * 2. 遇到右括号且与栈顶括号匹配则出栈
+   * 3. 最后栈空了则合法，否则不合法
+   *
+   * 二、用map优化:
+   * 1. 遇到左括号入栈
+   * 2. 遇到右括号且与栈顶括号匹配则出栈
+   * 3. 最后栈空了则合法，否则不合法
+   */
+
+  // 一、栈
   // if (s.length % 2 === 1) return false
   // const stack = []
   // for (let i = 0; i < s.length; i++) {
@@ -32,7 +44,7 @@ var isValid = function (s) {
   // }
   // return stack.length === 0
 
-  // 方案二：用map优化
+  // 二、用map优化
   if (s.length % 2 === 1) return false
   const stack = []
   const map = new Map()

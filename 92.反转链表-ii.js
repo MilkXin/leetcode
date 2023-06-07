@@ -19,10 +19,12 @@
  * @return {ListNode}
  */
 var reverseBetween = function (head, left, right) {
-  // 解题思路：迭代
-  // 1. 找到 left 的前一个节点 prev
-  // 2. 从 prev 开始迭代，将节点依次插入到 prev 后面
-  // 3. 返回 head
+  /**
+   * 迭代:
+   * 1. 找到 left 的前一个节点 prev
+   * 2. 从 prev 开始迭代，将节点依次插入到 prev 后面
+   * 3. 返回 head
+   */
 
   let preHead = new ListNode(-1)
   preHead.next = head

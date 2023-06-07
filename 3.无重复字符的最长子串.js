@@ -11,7 +11,7 @@
  */
 var lengthOfLongestSubstring = function (s) {
   /**
-   * 双指针法
+   * 双指针法:
    * 1. 用一个set来存储不重复的字符
    * 2. 用两个指针i和j来标记不重复的字符的起始位置和结束位置
    * 3. 如果set中没有s[j]，则将s[j]添加到set中，j++
