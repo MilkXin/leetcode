@@ -17,6 +17,10 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
+  /**
+   * 1. 如果当前节点和下一个节点的值相等，则删除下一个节点
+   * 2. 如果当前节点和下一个节点的值不相等，则移动到下一个节点
+   */
   let p = head
   while (p && p.next) {
     if (p.val === p.next.val) {
