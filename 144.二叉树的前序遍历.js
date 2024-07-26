@@ -18,6 +18,17 @@
  * @return {number[]}
  */
 var preorderTraversal = function (root) {
+  // 递归
+  // const res = []
+  // const dfs = (root) => {
+  //   if (!root) return
+  //   res.push(root.val)
+  //   dfs(root.left)
+  //   dfs(root.right)
+  // }
+  // dfs(root)
+  // return res
+
   // 需要用递归解决的问题，都能用栈解决
   const res = []
   const stack = []
