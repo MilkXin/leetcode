@@ -42,13 +42,12 @@ var hasCycle = function (head) {
   // return false;
 
   // 二、快慢指针
-  let fast = head
-  let slow = head
-  while (fast && fast.next) {
-    fast = fast.next.next
-    slow = slow.next
-
-    if (fast === slow) return true
+  let p1 = head
+  let p2 = head
+  while (p2 && p2.next) {
+    p1 = p1.next
+    p2 = p2.next.next
+    if (p1 === p2) return true
   }
   return false
 }
