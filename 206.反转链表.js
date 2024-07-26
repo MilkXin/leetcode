@@ -18,22 +18,21 @@
  */
 var reverseList = function (head) {
   /**
-   * 多指针:
-   * 1. 三个指针，分别指向当前节点，前一个节点，后一个节点
-   * 2. 当前节点的 next 指向前一个节点
-   * 3. 前一个节点指向当前节点
-   * 4. 当前节点指向后一个节点
-   * 5. 重复 2-4 步骤，直到当前节点为 null
-   * 6. 返回前一个节点
+   * 双指针:
+   * 1. 定义两个指针, p1 和 p2
+   * 2. 遍历链表, 将 p1 的 next 指向 p2, 然后将 p1 和 p2 向后移动一位
+   * 3. 当 p1 为 null 时, 返回 p2
+   * 4. 时间复杂度: O(n)
+   * 5. 空间复杂度: O(1)
    */
-  let pre = null
-  let cur = head
-  while (cur) {
-    let next = cur.next
-    cur.next = pre
-    pre = cur
-    cur = next
+  let p1 = head
+  let p2 = null
+  while (p1) {
+    let next = p1.next
+    p1.next = p2
+    p2 = p1
+    p1 = next
   }
-  return pre
+  return p2
 }
 // @lc code=end
