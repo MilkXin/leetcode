@@ -20,18 +20,32 @@ var lengthOfLongestSubstring = function (s) {
    * 6. 用while循环来遍历字符串
    * 7. 返回max
    */
-  let i = 0,
-    j = 0,
-    max = 0
-  const set = new Set()
-  while (i < s.length && j < s.length) {
-    if (!set.has(s[j])) {
-      set.add(s[j++])
-      max = Math.max(max, j - i)
-    } else {
-      set.delete(s[i++])
+  // let i = 0,
+  //   j = 0,
+  //   max = 0
+  // const set = new Set()
+  // while (i < s.length && j < s.length) {
+  //   if (!set.has(s[j])) {
+  //     set.add(s[j++])
+  //     max = Math.max(max, j - i)
+  //   } else {
+  //     set.delete(s[i++])
+  //   }
+  // }
+  // return max
+
+  // 使用Map改写
+  let i = 0
+  let res = 0
+  const map = new Map()
+  for (let j = 0; j < s.length; j++) {
+    if (map.has(s[j]) && map.get(s[j]) >= i) {
+      i = map.get(s[j]) + 1
     }
+    res = Math.max(res, j - i + 1)
+    map.set(s[j], j)
   }
-  return max
+  return res
 }
+
 // @lc code=end
