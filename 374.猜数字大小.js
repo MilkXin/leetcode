@@ -19,7 +19,7 @@
  * @return {number}
  */
 var guessNumber = function (n) {
-  // 二分搜索哦
+  // 二分搜索，性能更优
   let low = 1
   let high = n
   while (low <= high) {
@@ -33,5 +33,20 @@ var guessNumber = function (n) {
       high = mid - 1
     }
   }
+
+  // 分治法
+  // const rec = (low, high) => {
+  //   if (low > high) return
+  //   const mid = Math.floor((low + high) / 2)
+  //   const res = guess(mid)
+  //   if (res === 0) {
+  //     return mid
+  //   } else if (res === 1) {
+  //     return rec(mid + 1, high)
+  //   } else {
+  //     return rec(1, mid - 1)
+  //   }
+  // }
+  // return rec(1, n)
 }
 // @lc code=end
